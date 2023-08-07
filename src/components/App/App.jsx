@@ -32,17 +32,16 @@ export const App =() => {
           Notiflix.Notify.failure('Sorry, there are no images matching your search query.');
           return;
         }
-
-        setImage([...image, ...r.hits]);
+        setImage(()=>[ ...r.hits]);
         setIsButton(currentPage < Math.ceil(r.totalHits / 12))
         }   
       )
       .catch(error => setIsError(true, error))
       .finally(() =>setIsLoading(false));
- },[tag, currentPage]); 
+ }, [currentPage,tag]); 
 
   const loadMoreImages = () => {
-    setCurrentPage(currentPage + 1)
+    setCurrentPage(currentPage + 1);
   }
    const arrayLength = image.length; 
     return (
