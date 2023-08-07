@@ -14,7 +14,6 @@ export const App =() => {
   const[isLoad, setIsLoading] = useState(false);
   const[isBtn, setIsButton] = useState(false);
   const[isError, setIsError] = useState(false);
-  const[error,  setError]  = useState(null)
 
   const formSubmit = data => {
     if (data === tag) {
@@ -40,7 +39,7 @@ export const App =() => {
       )
       .catch(error => setIsError(true, error))
       .finally(() =>setIsLoading(false));
- }, [currentPage,tag]) 
+ },[tag, currentPage]); 
 
   const loadMoreImages = () => {
     setCurrentPage(currentPage + 1)
@@ -49,7 +48,7 @@ export const App =() => {
     return (
       <Container>        
         <Searchbar onSubmit={formSubmit} />
-        {arrayLength!==0 && <ImageGallery images={image} />}  
+        {(arrayLength!==0||isError ) && <ImageGallery images={image} />}  
         {isLoad && <Loader/>}      
         {!isLoad && (isBtn && <Button onClick={loadMoreImages } />)}
       </Container>

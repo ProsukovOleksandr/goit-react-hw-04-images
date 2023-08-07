@@ -5,7 +5,7 @@ export const Modal = ({onClose, largeImageURL, tag })=>  {
     useEffect(()=>{
         window.addEventListener('keydown', keyDown);
         return ()=>{window.removeEventListener('keydown', keyDown)};
-    },[]) 
+    }) 
 
 
     const keyDown = event => {
