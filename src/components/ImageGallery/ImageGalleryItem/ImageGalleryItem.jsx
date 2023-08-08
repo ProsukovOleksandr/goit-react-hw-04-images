@@ -20,7 +20,6 @@ export const ImageGalleryItem = ({ webformatURL, tag, largeImageURL }) => {
     </>
   );
 };
-
 ImageGalleryItem.propTypes = {
   webformatURL: PropTypes.string,
   largeImageURL: PropTypes.string,
